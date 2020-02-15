@@ -12,8 +12,10 @@
 
   <ItemGroup>
     <Reference Include="Payir">
-      <HintPath>C:\Users\System1\Desktop\Payir.dll</HintPath>
+      <HintPath>..\..\..\PayIr\Payir\obj\Debug\netcoreapp2.2\Payir.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="http://json.schemastore.org/lsdlschema" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TestProj.Api.Dtos;
 using TestProj.Services;
 
 namespace TestProj.Controllers
@@ -24,14 +25,12 @@ namespace TestProj.Controllers
         #endregion
 
         // GET api/values
-        [HttpGet]
-        public async Task<ActionResult> get()
+        [HttpPost]
+        public async Task<ActionResult> Create([FromBody]PayIrDto dto)
         {
-            var pay = await  _sms.SendTokenRequest(1000,5, "");
+            var pay = await  _sms.SendTokenRequest(dto.Amount, 1, dto.Api, dto.Mobile);
 
             return Ok(pay);
         }
-
-        
     }
 }

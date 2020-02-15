@@ -7,7 +7,7 @@ namespace TestProj.Services
 {
     public class SMSService  : ISMSService
     {
-        private string apiKey = "test";
+        public const string ApiKey = "X-API-KEY";
 
         #region PaymentResultStatusCode
 
@@ -21,18 +21,20 @@ namespace TestProj.Services
 
         #region Payment
 
-        public async Task<string>  SendTokenRequest(int amount, int enrollmentId, string mobile = "")
+        public async Task<string>  SendTokenRequest(int amount, int enrollmentId, string api, string mobile)
         {
             try
             {
                 var request = new PaymentRequest
                 {
-                    Amount = amount * 10,
+                    amount = amount * 10,
+                    redirect = "https://ukademu.com",
                     FactorNumber = enrollmentId.ToString(),
                     Description = ""
                 };
-                var api = new Payment();
-                var response = await api.GetTokenAsync(request);
+                var apiKey = new Payment();
+                
+                var response = await apiKey.GetTokenAsync(request);
                 if (response.Status) 
                     return response.Token;
             }

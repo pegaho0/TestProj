@@ -8,7 +8,7 @@ namespace TestProj.Services
     public interface ISMSService 
     {
 
-        Task<string> SendTokenRequest(int amount, int enrollmentId, string mobile = "");
+        Task<string> SendTokenRequest(int amount, int enrollmentId, string api, string mobile = "");
 
         string CheckTransId(string token);
        
